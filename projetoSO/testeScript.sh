@@ -1,5 +1,5 @@
 #Script para o teste do tempo execução, tempo de memoria, kernel e usuário
-for ((i=0;i<50;i++))
+for ((i=1;i<=50;i++))
 do
-	//usr/bin/time --format='tempo=%E memoria=%M kernel=%S usr=%U' ./script.sh
+	echo " $(//usr/bin/time --format='%E %M %S %U' ./$1)" >> metricas$2.txt
 done
