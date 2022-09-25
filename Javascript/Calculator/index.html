@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Calculator</title>
+    
+    <style>
+        #op {
+            width: 500px;
+            height: 80px;
+        }
+    </style>
+    
+</head>
+<body class="bg-dark">
+    <div class="container-fluid" id="main">
+        <div class="container" id="content">
+         <div class="container text-center">
+            <div class="container mt-5 border border-5 border-warning rounded-3 p-3" id="op"></div>
+	    <div class="container mt-2">
+		<button onclick="handleElement('0')" class="btn btn-outline-info btn-lg"><span class="display-2">0</span></button>
+		<button onclick="handleElement('1')" class="btn btn-outline-info btn-lg"><span class="display-2">1</span></button>
+		<button onclick="handleElement('2')" class="btn btn-outline-info btn-lg"><span class="display-2">2</span></button><br>
+		<button onclick="handleElement('3')" class="btn btn-outline-info btn-lg"><span class="display-2">3</span></button>
+                <button onclick="handleElement('4')" class="btn btn-outline-info btn-lg"><span class="display-2">4</span></button>
+                <button onclick="handleElement('5')" class="btn btn-outline-info btn-lg"><span class="display-2">5</span></button><br>
+                <button onclick="handleElement('6')" class="btn btn-outline-info btn-lg"><span class="display-2">6</span></button>
+                <button onclick="handleElement('7')" class="btn btn-outline-info btn-lg"><span class="display-2">7</span></button>
+                <button onclick="handleElement('8')" class="btn btn-outline-info btn-lg"><span class="display-2">8</span></button><br>
+                <button onclick="handleElement('+')" class="btn btn-outline-success btn-lg"><span class="display-2">+</span></button>
+                <button onclick="handleElement('9')" class="btn btn-outline-info btn-lg"><span class="display-2">9</span></button>
+		<button onclick="handleElement('*')" class="btn btn-outline-success btn-lg "><span class="display-2">X</span></button><br>
+                <button onclick="handleElement('-')" class="btn btn-outline-danger btn-lg"><span class="display-2">-</span></button>
+                <button onclick="handleElement('=')" class="btn btn-outline-warning btn-lg"><span class="display-2">=</span></button>
+                <button onclick="handleElement('/')" class="btn btn-outline-danger btn-lg"><span class="display-2">/</span></button>
+            </div>
+	  </div>
+        </div>
+    </div>
+
+    <script>
+        var operation = '';
+       
+        function handleElement(element) {
+          if (element == "=") {
+            //calculate(operation)
+            operation = calculate(operation)
+	  } else {
+            operation += element
+	    document.getElementById('op').innerHTML = "<span class='text-warning h2'>" + operation + "</span>"
+          }
+        }
+
+        function calculate(operation) {
+            document.getElementById('op').innerText = '' 
+            document.getElementById('op').innerHTML = "<span class='text-warning h2'>" + eval(operation) + "</span"
+	    return eval(operation)
+        }
+    </script>
+</body>
+</body>
+</html>
