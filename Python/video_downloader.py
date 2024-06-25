@@ -21,7 +21,7 @@ def download(option, link, folder_storage):
         for video in playlist.video_urls:
             youtube = YouTube(video)
             stream = youtube.streams.filter(only_audio=True).first()
-            stream.download(filename=f"{youtube.title.replace(' ', '').lower()}.mp3")
+            stream.download(output_path='/home/' + os.environ.get('USER')+ '/' + folder_storage, filename=f"{youtube.title.replace(' ', '').lower()}.mp3")
             print(youtube.title.replace(' ', '').lower() + '.mp3\nDownloaded at ' + datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
 
     print("Folder storage: " + '/home/' + os.environ.get('USER')+ '/' + folder_storage)
